@@ -1,0 +1,6 @@
+- Assembly is a human readable interpretation of a machine code
+- When you compile a program in a programming language such as C or C++, it gets converted into a machine code which is the language that the processor understands
+- Assembly makes it easier for us humans to read and write the code
+- High level such as C or C++ need to be tranlated by the compiler into machine code
+- This will involve multiple steps; like building an abstract syntax tree and huge amount of optimization
+- Assembly is much simpler, because the instruction need to be converted into the machine code via a tool called an assembler
