@@ -58,7 +58,7 @@ bits 16
     }
 
     ; Fill the remaining memory space with zeros
-    let remainingSpace = 510 - (currentAddress() - startAddress())
+    let remainingSpace = 510 - (currentAddress($) - startAddress($$))
     for (let i = 0 i < remainingSpace i++) {
         writeByte(0)
     }
@@ -73,5 +73,13 @@ main:
 .halt:
     jmp .halt
 
+; $ Special symbol which is equal to the memory offset of the current line
+; $$ Special symbol which is equal to the memory offset of the beginning of the current section (on our case, program)
+; basically ($ - $$) helps us to find current address
+
 times 510-($-$$) db 0
 dw 0AA55h
+
+; in NASM, the "db" directive is used to allocate space for variables and initialize them. 
+; It allocates 1 byte for each variable defined using this directive. 
+; Similarly, "dw" allocates 2 bytes, "dd" allocates 4 bytes, and "dq" allocates 8 bytes
