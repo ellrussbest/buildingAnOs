@@ -13,3 +13,17 @@
 
 - The assembly language are different depending on different processors, i.e. the instructions supported on x86 processors(desktops and laptops) are different than the instructions supported on an arm cpu (tablets and smart phones)
 - Most processors, however, keep backward comaptibility so that old programs can still run without modification
+
+## x86 CPU Registers
+
+- All processors have a number of registers, which are really small pieces of memory that can be written or read very fast and are built into the CPU
+- In an X86 CPU, we can have the following registers:
+  - General purpose registers:
+      This can be used for almost any purpose
+  - Status Registers
+  - Segment registers
+  - Protected mode registers
+  - Control registers
+  - Debug registers
+  - Floating point unit registers
+  - SIMD registers
