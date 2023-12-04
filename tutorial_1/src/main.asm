@@ -26,7 +26,7 @@
 
 ; Our BIOS always puts our operating system on the address 7C00
 ; So the first thing we need to do is to give our assembler this information
-; This is done using the org directive
+; This is done using the `ORG` directive
 ; This will tell assembler to calculate all memory offset starting at the address 0x7C00
 ; Changing this address to another address, say, won't make the BIOS load at a different address
 ; It will only tell the assembler that the variables and labels from our code should be calculated with the offset 0x7C00
@@ -41,6 +41,9 @@ org 0x7C00
 
 ; We tell our assembler to emit 16 bit code (this could either be 16, 32, or 64 bit code)
 ; Because of backward compatibility, the CPU always starts in 16 bit mode
+; `BITS` is a directive which tells the assembly to emit a 16-bit code
+; e.g. writing bits 32, won't make the processor run in 32-bit mode it is only a directive which tells the assembler
+; to emit a 32 bit code 
 bits 16
 
 ; Start of comment
@@ -80,6 +83,5 @@ main:
 times 510-($-$$) db 0
 dw 0AA55h
 
-; in NASM, the "db" directive is used to allocate space for variables and initialize them. 
-; It allocates 1 byte for each variable defined using this directive. 
+; in NASM, the "db" directive is used to allocate 1 byte space for variables and initialize them. 
 ; Similarly, "dw" allocates 2 bytes, "dd" allocates 4 bytes, and "dq" allocates 8 bytes
